@@ -1,0 +1,44 @@
+extends CharacterBody2D
+class_name PlayerCharacter 
+
+@export var hud : Hud
+var current_iteraction : IteractionObject
+
+@export var SPEED : float = 200.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	if velocity.length_squared() > 100 :
+		%AnimationPlayer.play("walk")
+		if velocity.x < 0 :
+			%Sprite2D.flip_h = true
+		else :
+			%Sprite2D.flip_h = false
+	else :
+		%AnimationPlayer.play("idle")
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+
+func iteraction_area_entered(iObject : IteractionObject) -> void :
+	hud.show_action(iObject.action_name)
+	current_iteraction = iObject
+
+func iteraction_area_exited(iObject : IteractionObject) -> void :
+	hud.hide_action()
+	current_iteraction = null
+	
+func carry_item(item : Node2D) -> void :
+	%ItemMarker.add_child(item)

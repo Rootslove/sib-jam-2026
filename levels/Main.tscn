@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dcx4rqcwl025c"]
+
+[ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="1_s5j47"]
+[ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="2_h11cf"]
+[ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/Objects/Bed.tscn" id="3_2jfjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5j47"]
+size = Vector2(918, 20)
+
+[node name="Main" type="Node2D" unique_id=933123736]
+
+[node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
+player = NodePath("../PlayerCharacter")
+
+[node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("1_s5j47")]
+position = Vector2(381, 233)
+hud = NodePath("../Hud")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1120791234]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=662441531]
+position = Vector2(411, 278)
+shape = SubResource("RectangleShape2D_s5j47")
+
+[node name="Bed" parent="." unique_id=125741387 instance=ExtResource("3_2jfjj")]
+position = Vector2(58, 267)
+collision_layer = 0
+collision_mask = 2
+expression_string = "sleep()"

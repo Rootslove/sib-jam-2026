@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://27xvq0m6khfa"]
+
+[ext_resource type="Script" uid="uid://ba60fj83j1q74" path="res://scripts/iteraction_object.gd" id="1_avsjb"]
+[ext_resource type="Texture2D" uid="uid://de6h4v0pc5u5d" path="res://assets/sprites/PC/Bed-0001.png" id="2_8luvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avsjb"]
+size = Vector2(50, 24)
+
+[node name="Bed" type="Area2D" unique_id=125741387]
+script = ExtResource("1_avsjb")
+action_name = "E - спать"
+expression_string = "GManager.sleep()"
+metadata/_custom_type_script = "uid://ba60fj83j1q74"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1695437483]
+position = Vector2(-1, -15)
+scale = Vector2(2.1599998, 1.7600002)
+shape = SubResource("RectangleShape2D_avsjb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1752184258]
+position = Vector2(1, -24)
+texture = ExtResource("2_8luvi")

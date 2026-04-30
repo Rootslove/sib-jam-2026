@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cqsf10t1k7svg"]
+
+[ext_resource type="Script" uid="uid://dbgr0adg18xrv" path="res://scenes/UI/loading_screen.gd" id="1_74fen"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74fen"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Animation" id="Animation_74fen"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lopin"]
+resource_name = "transition"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rg30"]
+_data = {
+&"RESET": SubResource("Animation_74fen"),
+&"transition": SubResource("Animation_lopin")
+}
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=812417488]
+script = ExtResource("1_74fen")
+metadata/_custom_type_script = "uid://dbgr0adg18xrv"
+
+[node name="Panel" type="Panel" parent="." unique_id=1087037952]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_74fen")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=298878618]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_3rg30")
+autoplay = &"transition"
