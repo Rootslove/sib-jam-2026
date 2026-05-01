@@ -5,40 +5,88 @@
 [ext_resource type="PackedScene" uid="uid://bt01jwy1bevi3" path="res://scenes/objects/shelve&shells/Shell.tscn" id="2_3vw7n"]
 [ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="2_h11cf"]
 [ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/objects/Bed.tscn" id="3_2jfjj"]
+[ext_resource type="Texture2D" uid="uid://cq5hhl7r8l1tf" path="res://assets/sprites/BG/skyBox.png" id="3_bvijt"]
+[ext_resource type="Texture2D" uid="uid://cx0g23f3qih87" path="res://assets/sprites/BG/foreground.png" id="4_3mabw"]
+[ext_resource type="Texture2D" uid="uid://dl60fr5buq2ys" path="res://assets/sprites/BG/background.png" id="5_3pm0d"]
 [ext_resource type="PackedScene" uid="uid://c04rsj6fmxabk" path="res://scenes/objects/shelve&shells/Shelve.tscn" id="5_lbxsr"]
+[ext_resource type="Texture2D" uid="uid://3xiwl6ftg6rj" path="res://assets/sprites/BG/pipes.png" id="6_ko617"]
 [ext_resource type="PackedScene" uid="uid://do75j6bj5h4g0" path="res://scenes/objects/gun/Gun.tscn" id="7_vmibe"]
+[ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_owvkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5j47"]
 size = Vector2(918, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko617"]
+size = Vector2(50, 240)
 
 [node name="Main" type="Node2D" unique_id=933123736]
 script = ExtResource("1_ntnxr")
 he_shell = ExtResource("2_3vw7n")
 
-[node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
-player = NodePath("../PlayerCharacter")
+[node name="Background" type="Node2D" parent="." unique_id=1320744120]
+position = Vector2(475, 199)
 
-[node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("1_s5j47")]
-position = Vector2(381, 233)
-hud = NodePath("../Hud")
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=647781645]
+texture = ExtResource("3_bvijt")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1120791234]
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=164319133]
+texture = ExtResource("4_3mabw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=235875464]
+texture = ExtResource("5_3pm0d")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background" unique_id=1345698557]
+texture = ExtResource("6_ko617")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1120791234]
+position = Vector2(-475, -199)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=662441531]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=662441531]
 position = Vector2(411, 278)
 shape = SubResource("RectangleShape2D_s5j47")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Background" unique_id=621428567]
+position = Vector2(-475, -199)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D2" unique_id=668451447]
+position = Vector2(-19, 167)
+shape = SubResource("RectangleShape2D_ko617")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Background" unique_id=1713928368]
+position = Vector2(443, -197)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D3" unique_id=794821039]
+position = Vector2(-19, 167)
+shape = SubResource("RectangleShape2D_ko617")
+
+[node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
+player = NodePath("../PlayerCharacter")
+
 [node name="Bed" parent="." unique_id=125741387 instance=ExtResource("3_2jfjj")]
 unique_name_in_owner = true
-position = Vector2(58, 267)
+position = Vector2(58, 268)
 collision_layer = 0
 collision_mask = 2
 expression_string = "sleep()"
 
 [node name="Shelve" parent="." unique_id=325387380 instance=ExtResource("5_lbxsr")]
 unique_name_in_owner = true
-position = Vector2(265, 227)
+position = Vector2(265, 228)
 
 [node name="Gun" parent="." unique_id=1644629653 instance=ExtResource("7_vmibe")]
-position = Vector2(570, 203)
+position = Vector2(770, 203)
+
+[node name="HmCamera" type="Camera2D" parent="." unique_id=986273703 node_paths=PackedStringArray("target")]
+position = Vector2(321, 182)
+script = ExtResource("12_owvkk")
+left_limit = 300
+right_limit = 650
+target = NodePath("../PlayerCharacter")
+metadata/_custom_type_script = "uid://cf8wu1u008fwv"
+
+[node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("1_s5j47")]
+position = Vector2(136, 251)
+hud = NodePath("../Hud")
