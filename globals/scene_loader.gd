@@ -1,5 +1,4 @@
 extends Node
-class_name SceneLoader
 
 signal load_finished
 
@@ -19,6 +18,7 @@ func _process(_delta: float) -> void:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_scene = ResourceLoader.load_threaded_get(scene_path)
 			get_tree().change_scene_to_packed(loaded_scene)
+			load_finished.emit()
 	
 func load_scene(_scene_path : String) -> void :
 	scene_path = _scene_path
