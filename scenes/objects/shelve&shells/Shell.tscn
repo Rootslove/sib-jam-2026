@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bt01jwy1bevi3"]
+
+[ext_resource type="Script" uid="uid://dqoxt1rgl6sgd" path="res://scripts/item.gd" id="1_8f81k"]
+[ext_resource type="Texture2D" uid="uid://c7stryc575l3i" path="res://assets/sprites/PC/Shell-0003.png" id="2_carb2"]
+
+[node name="Shell" type="Node2D" unique_id=1032144903]
+script = ExtResource("1_8f81k")
+item_name = "Снаряд"
+metadata/_custom_type_script = "uid://dqoxt1rgl6sgd"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1504268974]
+position = Vector2(16, 16)
+texture = ExtResource("2_carb2")

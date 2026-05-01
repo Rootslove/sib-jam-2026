@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c04rsj6fmxabk"]
+
+[ext_resource type="Script" uid="uid://q3uk2xh4lel0" path="res://scenes/objects/shelve&shells/shelve_obj.gd" id="1_vpal0"]
+[ext_resource type="Texture2D" uid="uid://bumtnu8hebbwa" path="res://assets/sprites/PC/Shelve-0002.png" id="2_jr0h8"]
+[ext_resource type="Script" uid="uid://c64qkrudarhkp" path="res://scenes/objects/shelve&shells/shelve_slot.gd" id="3_i4ec0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ec0"]
+size = Vector2(35, 75)
+
+[node name="Shelve" type="Area2D" unique_id=325387380 node_paths=PackedStringArray("shell_slots")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vpal0")
+shell_slots = [NodePath("ShelveSlot"), NodePath("ShelveSlot2"), NodePath("ShelveSlot3"), NodePath("ShelveSlot4")]
+metadata/_custom_type_script = "uid://q3uk2xh4lel0"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1724288017]
+texture = ExtResource("2_jr0h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1771042102]
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_i4ec0")
+
+[node name="ShelveSlot" type="Marker2D" parent="." unique_id=2007067789]
+position = Vector2(-25, -21)
+script = ExtResource("3_i4ec0")
+metadata/_custom_type_script = "uid://c64qkrudarhkp"
+
+[node name="ShelveSlot2" type="Marker2D" parent="." unique_id=908929162]
+position = Vector2(3, -20)
+script = ExtResource("3_i4ec0")
+metadata/_custom_type_script = "uid://c64qkrudarhkp"
+
+[node name="ShelveSlot3" type="Marker2D" parent="." unique_id=1402818212]
+position = Vector2(-25, -1)
+script = ExtResource("3_i4ec0")
+metadata/_custom_type_script = "uid://c64qkrudarhkp"
+
+[node name="ShelveSlot4" type="Marker2D" parent="." unique_id=187908097]
+position = Vector2(3, -1)
+script = ExtResource("3_i4ec0")
+metadata/_custom_type_script = "uid://c64qkrudarhkp"

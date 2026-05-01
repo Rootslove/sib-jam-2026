@@ -2,14 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cb6xfknn214i5" path="res://levels/main_scene.gd" id="1_ntnxr"]
 [ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="1_s5j47"]
+[ext_resource type="PackedScene" uid="uid://bt01jwy1bevi3" path="res://scenes/objects/shelve&shells/Shell.tscn" id="2_3vw7n"]
 [ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="2_h11cf"]
-[ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/Objects/Bed.tscn" id="3_2jfjj"]
+[ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/objects/Bed.tscn" id="3_2jfjj"]
+[ext_resource type="PackedScene" uid="uid://c04rsj6fmxabk" path="res://scenes/objects/shelve&shells/Shelve.tscn" id="5_lbxsr"]
+[ext_resource type="PackedScene" uid="uid://do75j6bj5h4g0" path="res://scenes/objects/gun/Gun.tscn" id="7_vmibe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5j47"]
 size = Vector2(918, 20)
 
 [node name="Main" type="Node2D" unique_id=933123736]
 script = ExtResource("1_ntnxr")
+he_shell = ExtResource("2_3vw7n")
 
 [node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
 player = NodePath("../PlayerCharacter")
@@ -26,7 +30,15 @@ position = Vector2(411, 278)
 shape = SubResource("RectangleShape2D_s5j47")
 
 [node name="Bed" parent="." unique_id=125741387 instance=ExtResource("3_2jfjj")]
+unique_name_in_owner = true
 position = Vector2(58, 267)
 collision_layer = 0
 collision_mask = 2
 expression_string = "sleep()"
+
+[node name="Shelve" parent="." unique_id=325387380 instance=ExtResource("5_lbxsr")]
+unique_name_in_owner = true
+position = Vector2(265, 227)
+
+[node name="Gun" parent="." unique_id=1644629653 instance=ExtResource("7_vmibe")]
+position = Vector2(570, 203)

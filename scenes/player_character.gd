@@ -3,6 +3,7 @@ class_name PlayerCharacter
 
 @export var hud : Hud
 var current_iteraction : IteractionObject
+var carried_item : Item
 
 @export var SPEED : float = 200.0
 const JUMP_VELOCITY = -400.0
@@ -41,4 +42,11 @@ func iteraction_area_exited(iObject : IteractionObject) -> void :
 	current_iteraction = null
 	
 func carry_item(item : Node2D) -> void :
+	carried_item = item
 	%ItemMarker.add_child(item)
+	
+func drop_item() -> Node2D :
+	var item_to_return : Node2D = carried_item
+	%ItemMarker.remove_child(carried_item)
+	carried_item = null
+	return item_to_return
