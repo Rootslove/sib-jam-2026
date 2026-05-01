@@ -63,27 +63,22 @@ collision_mask = 0
 position = Vector2(-19, 167)
 shape = SubResource("RectangleShape2D_ko617")
 
-[node name="Objects" type="Node2D" parent="." unique_id=2058227845]
+[node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
+player = NodePath("../PlayerCharacter")
 
-[node name="Bed" parent="Objects" unique_id=125741387 instance=ExtResource("3_2jfjj")]
+[node name="Bed" parent="." unique_id=125741387 instance=ExtResource("3_2jfjj")]
 unique_name_in_owner = true
 position = Vector2(58, 268)
 collision_layer = 0
 collision_mask = 2
 expression_string = "sleep()"
 
-[node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_lbxsr")]
+[node name="Shelve" parent="." unique_id=325387380 instance=ExtResource("5_lbxsr")]
 unique_name_in_owner = true
 position = Vector2(265, 228)
 
-[node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("7_vmibe")]
+[node name="Gun" parent="." unique_id=1644629653 instance=ExtResource("7_vmibe")]
 position = Vector2(770, 203)
-
-[node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("13_rak1d")]
-position = Vector2(186, 235)
-
-[node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
-player = NodePath("../PlayerCharacter")
 
 [node name="HmCamera" type="Camera2D" parent="." unique_id=986273703 node_paths=PackedStringArray("target")]
 position = Vector2(321, 182)
@@ -96,3 +91,6 @@ metadata/_custom_type_script = "uid://cf8wu1u008fwv"
 [node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("1_s5j47")]
 position = Vector2(136, 251)
 hud = NodePath("../Hud")
+
+[node name="Radio" parent="." unique_id=705585387 instance=ExtResource("13_rak1d")]
+position = Vector2(186, 222)

@@ -9,6 +9,9 @@ var carried_item : Item
 const JUMP_VELOCITY = -400.0
 
 
+func _ready() -> void:
+	GManager.player = self
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

@@ -16,6 +16,9 @@ func show_hint(hint : String) :
 func hide_action() :
 	%ActionContainer.visible = false
 	%HitnContainer.visible = false
+	
+func start_dialogue(dialog : DialogRes) -> void:
+	%DialoguePanel.start_dialogue(dialog)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
