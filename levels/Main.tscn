@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c04rsj6fmxabk" path="res://scenes/objects/shelve&shells/Shelve.tscn" id="5_lbxsr"]
 [ext_resource type="Texture2D" uid="uid://3xiwl6ftg6rj" path="res://assets/sprites/BG/pipes.png" id="6_ko617"]
 [ext_resource type="PackedScene" uid="uid://do75j6bj5h4g0" path="res://scenes/objects/gun/Gun.tscn" id="7_vmibe"]
+[ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="11_n3j8x"]
 [ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_owvkk"]
+[ext_resource type="Resource" uid="uid://dokkpgphpawdn" path="res://levels/day_1/radio_day_1.tres" id="12_ujns5"]
 [ext_resource type="PackedScene" uid="uid://dlkmg8nfuoqta" path="res://scenes/objects/Radio/Radio.tscn" id="13_rak1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5j47"]
@@ -81,6 +83,8 @@ position = Vector2(770, 203)
 
 [node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("13_rak1d")]
 position = Vector2(186, 235)
+collision_layer = 0
+dialog = Array[ExtResource("11_n3j8x")]([ExtResource("12_ujns5")])
 
 [node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
 player = NodePath("../PlayerCharacter")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogRes" format=3 uid="uid://dokkpgphpawdn"]
+
+[ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="1_wrs28"]
+
+[resource]
+script = ExtResource("1_wrs28")
+phrases = Array[String](["Противник наступает! ", "Нам требуется вся наша огневая мощь, стреляйте  из пушки!!!", "Быстрее!!!!!!"])
+speaker = "Голос из радио"
+id = "radio_1"
+can_be_skipped = false
+metadata/_custom_type_script = "uid://bdvw2h0krd13u"
