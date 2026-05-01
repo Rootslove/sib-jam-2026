@@ -20,8 +20,12 @@ func notify_player_enter(body : Node2D) -> void:
 		player.hud.show_action(deposit_shell_str)
 	else :
 		player.hud.show_action(take_shell_str)
+		for slot : ShelveSlot in shell_slots :
+			if slot.is_occupied() :
+				return
+		is_empty = true
 	if is_empty :
-		player.hud.show_action(no_shell_str)
+		player.hud.show_hint(no_shell_str)
 
 func on_button_pressed() -> void:
 	if player.carried_item != null :

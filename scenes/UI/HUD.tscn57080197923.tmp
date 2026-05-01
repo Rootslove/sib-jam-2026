@@ -86,11 +86,4 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Это текст для подсказки игроку"
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=357873156]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-
-[node name="DialoguePanel" parent="MarginContainer" unique_id=2109039091 instance=ExtResource("2_7n4fj")]
-layout_mode = 2
+[node name="DialoguePanel" parent="." unique_id=2109039091 instance=ExtResource("2_7n4fj")]

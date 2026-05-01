@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dofo020tdlvi0"]
+
+[ext_resource type="Script" uid="uid://ks7m3h0r0kq0" path="res://scenes/UI/dialogue_panel.gd" id="1_ophop"]
+
+[node name="DialoguePanel" type="PanelContainer" unique_id=2109039091]
+offset_right = 17.0
+offset_bottom = 39.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_ophop")
+metadata/_custom_type_script = "uid://ks7m3h0r0kq0"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=315217534]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=173203299]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+text = "Это эксперементальный текст"
+fit_content = true
+autowrap_mode = 2
