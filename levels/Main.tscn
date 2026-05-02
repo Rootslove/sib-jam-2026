@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="2_h11cf"]
 [ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/objects/Bed.tscn" id="3_2jfjj"]
 [ext_resource type="Texture2D" uid="uid://cq5hhl7r8l1tf" path="res://assets/sprites/BG/skyBox.png" id="3_bvijt"]
-[ext_resource type="Texture2D" uid="uid://cx0g23f3qih87" path="res://assets/sprites/BG/foreground.png" id="4_3mabw"]
-[ext_resource type="Texture2D" uid="uid://dl60fr5buq2ys" path="res://assets/sprites/BG/background.png" id="5_3pm0d"]
+[ext_resource type="Texture2D" uid="uid://cd2i05qya2dn0" path="res://assets/sprites/BG/2/background.png" id="4_n3j8x"]
 [ext_resource type="PackedScene" uid="uid://c04rsj6fmxabk" path="res://scenes/objects/shelve&shells/Shelve.tscn" id="5_lbxsr"]
-[ext_resource type="Texture2D" uid="uid://3xiwl6ftg6rj" path="res://assets/sprites/BG/pipes.png" id="6_ko617"]
+[ext_resource type="Texture2D" uid="uid://bg2nk36ohfqnq" path="res://assets/sprites/BG/2/foreground.png" id="5_ujns5"]
 [ext_resource type="PackedScene" uid="uid://do75j6bj5h4g0" path="res://scenes/objects/gun/Gun.tscn" id="7_vmibe"]
 [ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="11_n3j8x"]
 [ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_owvkk"]
@@ -34,13 +33,12 @@ position = Vector2(475, 199)
 texture = ExtResource("3_bvijt")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=164319133]
-texture = ExtResource("4_3mabw")
+texture = ExtResource("4_n3j8x")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=235875464]
-texture = ExtResource("5_3pm0d")
+texture = ExtResource("5_ujns5")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Background" unique_id=1345698557]
-texture = ExtResource("6_ko617")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1120791234]
 position = Vector2(-475, -199)
@@ -77,18 +75,18 @@ expression_string = "sleep()"
 
 [node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_lbxsr")]
 unique_name_in_owner = true
-position = Vector2(265, 228)
+position = Vector2(564, 223)
 
 [node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("7_vmibe")]
-position = Vector2(770, 203)
+position = Vector2(866, 109)
 
 [node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("13_rak1d")]
-position = Vector2(186, 235)
+position = Vector2(274, 221)
 collision_layer = 0
 dialog = Array[ExtResource("11_n3j8x")]([ExtResource("12_ujns5")])
 
 [node name="TableObj" parent="Objects" unique_id=553220251 instance=ExtResource("13_ujns5")]
-position = Vector2(392, 244)
+position = Vector2(431, 246)
 
 [node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
 player = NodePath("../PlayerCharacter")

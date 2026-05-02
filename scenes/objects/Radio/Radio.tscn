@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dlkmg8nfuoqta"]
 
 [ext_resource type="Script" uid="uid://duq3rsku3f4xh" path="res://scenes/objects/Radio/radio.gd" id="1_l71wl"]
-[ext_resource type="Texture2D" uid="uid://cnrqaq4ugp38o" path="res://assets/sprites/PC/Radio.png" id="2_71sip"]
+[ext_resource type="Texture2D" uid="uid://bam8r348fwy4d" path="res://assets/sprites/Obj/Radio.png" id="2_71sip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l71wl"]
-size = Vector2(43, 74)
+size = Vector2(65, 74)
 
 [node name="Radio" type="Area2D" unique_id=705585387]
 collision_mask = 2
@@ -15,5 +15,5 @@ metadata/_custom_type_script = "uid://duq3rsku3f4xh"
 texture = ExtResource("2_71sip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516794589]
-position = Vector2(4.5, -2)
+position = Vector2(0.5, -2)
 shape = SubResource("RectangleShape2D_l71wl")

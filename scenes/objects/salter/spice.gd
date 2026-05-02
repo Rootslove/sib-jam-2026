@@ -30,7 +30,6 @@ func on_area_entered(area2d: Area2D) -> void:
 		return
 	area = area2d
 	freeze_timer.start()
-	print(area)
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.DOWN * delta * fall_velocity

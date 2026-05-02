@@ -29,7 +29,6 @@ func notify_player_enter(body : Node2D) -> void:
 
 func on_button_pressed() -> void:
 	if player.carried_item != null :
-		print("depositing")
 		add_shell(player.drop_item())
 		player.hud.show_action(take_shell_str)
 	else :
