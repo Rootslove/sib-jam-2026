@@ -13,6 +13,7 @@ func _ready() -> void:
 func notify_player_enter(body : Node2D) -> void:
 	super(body)
 	if %AnimatedSprite2D.is_playing() || is_firing :
+		player.hud.hide_action()
 		return
 	if player.carried_item == null :
 		player.hud.show_hint(hint_string)
