@@ -5,6 +5,8 @@ class_name PlayerCharacter
 var current_iteraction : IteractionObject
 var carried_item : Item
 
+@onready var item_marker : Node2D = %ItemMarker
+
 @export var SPEED : float = 200.0
 const JUMP_VELOCITY = -400.0
 

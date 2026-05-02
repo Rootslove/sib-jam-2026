@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://btik5ldm7lqh6"]
+
+[ext_resource type="Texture2D" uid="uid://cmdku8eq2uni4" path="res://assets/sprites/PC/Salt-0003.png" id="1_8uctk"]
+[ext_resource type="Script" uid="uid://dl4p3ohmr56sc" path="res://scenes/objects/salter/spice.gd" id="1_brwa2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brwa2"]
+radius = 1.0
+
+[node name="SaltPiece" type="Area2D" unique_id=44295824]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_brwa2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2135778942]
+texture = ExtResource("1_8uctk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=381256093]
+shape = SubResource("CircleShape2D_brwa2")

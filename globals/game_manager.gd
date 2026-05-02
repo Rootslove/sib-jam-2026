@@ -10,3 +10,4 @@ func sleep() -> void:
 	SceneLoader.load_scene("res://levels/Main.tscn")
 	await SceneLoader.load_finished
 	
+	

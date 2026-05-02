@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_owvkk"]
 [ext_resource type="Resource" uid="uid://dokkpgphpawdn" path="res://levels/day_1/radio_day_1.tres" id="12_ujns5"]
 [ext_resource type="PackedScene" uid="uid://dlkmg8nfuoqta" path="res://scenes/objects/Radio/Radio.tscn" id="13_rak1d"]
+[ext_resource type="PackedScene" uid="uid://jef01uyf7dly" path="res://scenes/objects/cooking_table/TableObj.tscn" id="13_ujns5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5j47"]
 size = Vector2(918, 20)
@@ -85,6 +86,9 @@ position = Vector2(770, 203)
 position = Vector2(186, 235)
 collision_layer = 0
 dialog = Array[ExtResource("11_n3j8x")]([ExtResource("12_ujns5")])
+
+[node name="TableObj" parent="Objects" unique_id=553220251 instance=ExtResource("13_ujns5")]
+position = Vector2(392, 244)
 
 [node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("2_h11cf")]
 player = NodePath("../PlayerCharacter")

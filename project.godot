@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SibJam2026"
-run/main_scene="uid://blf3tcwbrf015"
+run/main_scene="uid://bdnn4des4fa0i"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -50,6 +50,8 @@ ui_right={
 
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Spice"
+2d_physics/layer_4="SpiceArea"
 
 [physics]
 

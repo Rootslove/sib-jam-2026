@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://nww3ntnaeqw2"]
+
+[ext_resource type="PackedScene" uid="uid://cphvmyxprx75f" path="res://scenes/objects/salter/Salter.tscn" id="1_cojxw"]
+[ext_resource type="Script" uid="uid://doe0jq3w8814c" path="res://levels/cooking/cooking_table.gd" id="1_m4ugx"]
+[ext_resource type="PackedScene" uid="uid://btik5ldm7lqh6" path="res://scenes/objects/salter/SaltPiece.tscn" id="2_ks5bk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cojxw"]
+size = Vector2(918, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ks5bk"]
+size = Vector2(50, 472)
+
+[sub_resource type="InputEventKey" id="InputEventKey_m4ugx"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_kbru1"]
+events = [SubResource("InputEventKey_m4ugx")]
+
+[node name="CookingTable" type="Node2D" unique_id=570553603 node_paths=PackedStringArray("salter", "shell", "shell_anchor")]
+script = ExtResource("1_m4ugx")
+salter = NodePath("Salter")
+shell = NodePath("")
+shell_anchor = NodePath("SalterAnchor")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1909229277]
+position = Vector2(328, 409)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=118398318]
+shape = SubResource("RectangleShape2D_cojxw")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1247066368]
+position = Vector2(344, -50)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1906959355]
+shape = SubResource("RectangleShape2D_cojxw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=926182746]
+position = Vector2(-73, 288)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1877685531]
+position = Vector2(0, -116)
+shape = SubResource("RectangleShape2D_ks5bk")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=2015141190]
+position = Vector2(742, 5)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=987404098]
+position = Vector2(-19, 167)
+shape = SubResource("RectangleShape2D_ks5bk")
+
+[node name="Salter" parent="." unique_id=624381517 node_paths=PackedStringArray("anchor") instance=ExtResource("1_cojxw")]
+position = Vector2(132, 241)
+salt = ExtResource("2_ks5bk")
+anchor = NodePath("../SalterAnchor")
+
+[node name="SalterAnchor" type="Marker2D" parent="." unique_id=521206149]
+position = Vector2(230, 247)
+
+[node name="ExitButton" type="Button" parent="." unique_id=1658832286]
+unique_name_in_owner = true
+offset_left = 347.0
+offset_top = -144.0
+offset_right = 355.0
+offset_bottom = -136.0
+shortcut = SubResource("Shortcut_kbru1")

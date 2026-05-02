@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cphvmyxprx75f"]
+
+[ext_resource type="Script" uid="uid://qemgpe8vcxsv" path="res://scenes/objects/salter/salter.gd" id="1_3oqb8"]
+[ext_resource type="Texture2D" uid="uid://b5k3hpeokhafb" path="res://assets/sprites/PC/Salter.png" id="2_6731o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oqb8"]
+size = Vector2(102, 132)
+
+[node name="Salter" type="CharacterBody2D" unique_id=624381517]
+script = ExtResource("1_3oqb8")
+metadata/_custom_type_script = "uid://qemgpe8vcxsv"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=183158065]
+position = Vector2(3, 16)
+texture = ExtResource("2_6731o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=489106333]
+position = Vector2(-1, 19)
+shape = SubResource("RectangleShape2D_3oqb8")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=607102942]
+unique_name_in_owner = true
+position = Vector2(-2, 69)

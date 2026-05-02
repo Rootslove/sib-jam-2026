@@ -16,5 +16,4 @@ metadata/_custom_type_script = "uid://5cbhre5yfurt"
 texture = ExtResource("2_55daq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=822503495]
-position = Vector2(-2.5, 3.5)
 shape = SubResource("RectangleShape2D_o6rjq")

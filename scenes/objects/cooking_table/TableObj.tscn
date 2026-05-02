@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jef01uyf7dly"]
+
+[ext_resource type="Script" uid="uid://b73lm82wcktt1" path="res://scenes/objects/cooking_table/table_obj.gd" id="1_w85wc"]
+[ext_resource type="Texture2D" uid="uid://daam5rn1788i0" path="res://assets/sprites/PC/cooking_table_obj.png" id="2_joy81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlgu7"]
+size = Vector2(56, 31)
+
+[node name="TableObj" type="Area2D" unique_id=553220251]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_w85wc")
+metadata/_custom_type_script = "uid://b73lm82wcktt1"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1917437043]
+texture = ExtResource("2_joy81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2018047070]
+position = Vector2(-1, 5.5)
+shape = SubResource("RectangleShape2D_hlgu7")
