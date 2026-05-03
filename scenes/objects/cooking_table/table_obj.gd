@@ -13,4 +13,4 @@ func notify_player_enter(body : Node2D) -> void:
 		player.hud.show_hint(nothing_to_coock_str)
 		
 func on_button_pressed() -> void:
-	SceneLoader.load_scene("res://levels/cooking/CookingTable.tscn")
+	SceneLoader.load_scene("res://levels/cooking/CookingTable.tscn", true)

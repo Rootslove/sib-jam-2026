@@ -1,12 +1,19 @@
 extends IteractionObject
 class_name ShelveObj
 
+@export var shell_tscn : PackedScene
+@export var amount : int = 4
 @export var shell_slots : Array[ShelveSlot]
 @export var take_shell_str : String = "E - взять снаряд"
 @export var deposit_shell_str : String = "E - вернуть снаряд"
 @export var no_shell_str : String = "пусто"
 
 var is_empty = false
+
+func _ready() -> void:
+	super()
+	for i in range(amount) :
+		add_shell(shell_tscn.instantiate())
 
 func add_shell(shell : Item) -> void:
 	for slot : ShelveSlot in shell_slots :

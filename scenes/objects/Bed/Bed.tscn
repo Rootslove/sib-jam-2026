@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://27xvq0m6khfa"]
 
-[ext_resource type="Script" uid="uid://ba60fj83j1q74" path="res://scripts/iteraction_object.gd" id="1_avsjb"]
+[ext_resource type="Script" uid="uid://c7gruw3a3ge2c" path="res://scenes/objects/Bed/bed.gd" id="1_pi7eh"]
 [ext_resource type="Texture2D" uid="uid://bi5aihv62ju48" path="res://assets/sprites/Obj/Bedroom.png" id="2_gqhsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avsjb"]
 size = Vector2(50, 24)
 
-[node name="Bed" type="Area2D" unique_id=125741387]
-script = ExtResource("1_avsjb")
+[node name="Bed" type="Area2D" unique_id=1378789970]
+script = ExtResource("1_pi7eh")
 action_name = "E - спать"
-expression_string = "GManager.sleep()"
-metadata/_custom_type_script = "uid://ba60fj83j1q74"
+metadata/_custom_type_script = "uid://c7gruw3a3ge2c"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1695437483]
 position = Vector2(-1, -15)

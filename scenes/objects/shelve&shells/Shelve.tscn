@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c04rsj6fmxabk"]
 
 [ext_resource type="Script" uid="uid://q3uk2xh4lel0" path="res://scenes/objects/shelve&shells/shelve_obj.gd" id="1_vpal0"]
+[ext_resource type="PackedScene" uid="uid://bt01jwy1bevi3" path="res://scenes/objects/shelve&shells/Shell.tscn" id="2_0atky"]
 [ext_resource type="Texture2D" uid="uid://bumtnu8hebbwa" path="res://assets/sprites/PC/Shelve-0002.png" id="2_jr0h8"]
 [ext_resource type="Script" uid="uid://c64qkrudarhkp" path="res://scenes/objects/shelve&shells/shelve_slot.gd" id="3_i4ec0"]
 
@@ -11,6 +12,7 @@ size = Vector2(35, 75)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vpal0")
+shell_tscn = ExtResource("2_0atky")
 shell_slots = [NodePath("ShelveSlot"), NodePath("ShelveSlot2"), NodePath("ShelveSlot3"), NodePath("ShelveSlot4")]
 metadata/_custom_type_script = "uid://q3uk2xh4lel0"
 

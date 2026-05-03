@@ -19,4 +19,4 @@ func _exit_tree() -> void:
 	shell = null
 
 func exit() -> void:
-	SceneLoader.load_scene("res://levels/Main.tscn")
+	SceneLoader.load_previous()

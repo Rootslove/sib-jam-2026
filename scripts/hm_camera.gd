@@ -11,6 +11,8 @@ func _ready() -> void:
 	position_smoothing_enabled = false
 
 func _physics_process(delta: float) -> void:
+	if not target :
+		return
 	var target_pos : Vector2 = global_position
 	target_pos.x = target.global_position.x
 	target_pos = target_pos.round()

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://blf3tcwbrf015"]
+
+[ext_resource type="Texture2D" uid="uid://cq5hhl7r8l1tf" path="res://assets/sprites/BG/skyBox.png" id="1_1cyvw"]
+[ext_resource type="Texture2D" uid="uid://cd2i05qya2dn0" path="res://assets/sprites/BG/2/background.png" id="2_nlco8"]
+[ext_resource type="Texture2D" uid="uid://bg2nk36ohfqnq" path="res://assets/sprites/BG/2/foreground.png" id="3_y75v8"]
+[ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/objects/Bed/Bed.tscn" id="4_lkjiq"]
+[ext_resource type="PackedScene" uid="uid://c04rsj6fmxabk" path="res://scenes/objects/shelve&shells/Shelve.tscn" id="5_y4ljs"]
+[ext_resource type="PackedScene" uid="uid://do75j6bj5h4g0" path="res://scenes/objects/gun/Gun.tscn" id="6_y6s2w"]
+[ext_resource type="PackedScene" uid="uid://dlkmg8nfuoqta" path="res://scenes/objects/Radio/Radio.tscn" id="7_signl"]
+[ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="8_xtm0n"]
+[ext_resource type="Resource" uid="uid://dokkpgphpawdn" path="res://levels/day_1/radio_day_1.tres" id="9_256l4"]
+[ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="11_0g0tp"]
+[ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_mooj2"]
+[ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="13_1rfrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5j47"]
+size = Vector2(918, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko617"]
+size = Vector2(50, 240)
+
+[node name="Main" type="Node2D" unique_id=933123736]
+
+[node name="Background" type="Node2D" parent="." unique_id=1320744120]
+position = Vector2(475, 199)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=647781645]
+texture = ExtResource("1_1cyvw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=164319133]
+texture = ExtResource("2_nlco8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=235875464]
+texture = ExtResource("3_y75v8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background" unique_id=1345698557]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1120791234]
+position = Vector2(-475, -199)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=662441531]
+position = Vector2(411, 278)
+shape = SubResource("RectangleShape2D_s5j47")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Background" unique_id=621428567]
+position = Vector2(-475, -199)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D2" unique_id=668451447]
+position = Vector2(-19, 167)
+shape = SubResource("RectangleShape2D_ko617")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Background" unique_id=1713928368]
+position = Vector2(443, -197)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D3" unique_id=794821039]
+position = Vector2(-19, 167)
+shape = SubResource("RectangleShape2D_ko617")
+
+[node name="Objects" type="Node2D" parent="." unique_id=2058227845]
+
+[node name="Bed" parent="Objects" unique_id=125741387 instance=ExtResource("4_lkjiq")]
+unique_name_in_owner = true
+position = Vector2(58, 268)
+collision_layer = 0
+collision_mask = 2
+next_scene = "uid://c32aw6ba7trk1"
+expression_string = "sleep()"
+
+[node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_y4ljs")]
+unique_name_in_owner = true
+position = Vector2(564, 223)
+
+[node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("6_y6s2w")]
+position = Vector2(866, 109)
+
+[node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("7_signl")]
+position = Vector2(274, 221)
+collision_layer = 0
+dialog = Array[ExtResource("8_xtm0n")]([ExtResource("9_256l4")])
+
+[node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("11_0g0tp")]
+player = NodePath("../PlayerCharacter")
+
+[node name="HmCamera" type="Camera2D" parent="." unique_id=986273703 node_paths=PackedStringArray("target")]
+position = Vector2(321, 182)
+script = ExtResource("12_mooj2")
+left_limit = 300
+right_limit = 650
+target = NodePath("../PlayerCharacter")
+metadata/_custom_type_script = "uid://cf8wu1u008fwv"
+
+[node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("13_1rfrp")]
+position = Vector2(136, 251)
+hud = NodePath("../Hud")

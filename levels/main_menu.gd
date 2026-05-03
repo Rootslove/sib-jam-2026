@@ -6,4 +6,4 @@ func _ready() -> void:
 	
 func on_play_pressed() -> void :
 	SceneLoader.current_scene = self
-	SceneLoader.load_scene("res://levels/Main.tscn")
+	SceneLoader.load_scene(Constants.SCENE_PATH.day_1)
