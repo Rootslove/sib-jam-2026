@@ -7,6 +7,8 @@ class_name ShelveObj
 @export var take_shell_str : String = "E - взять снаряд"
 @export var deposit_shell_str : String = "E - вернуть снаряд"
 @export var no_shell_str : String = "пусто"
+@export var hide_shells : bool = false
+@export var can_deposit : bool = true
 
 var is_empty = false
 
@@ -19,18 +21,24 @@ func add_shell(shell : Item) -> void:
 	for slot : ShelveSlot in shell_slots :
 		if not slot.is_occupied() :
 			slot.occupy(shell)
+			if hide_shells :
+				shell.visible = false
 			return
 
 func notify_player_enter(body : Node2D) -> void:
 	super(body)
+	if not is_empty :
+		check_empty()
 	if player.carried_item != null :
-		player.hud.show_action(deposit_shell_str)
+		if can_deposit :
+			player.hud.show_action(deposit_shell_str)
+		else :
+			if is_empty :
+				player.hud.show_hint(no_shell_str)
+			else :
+				player.hud.hide_action()
 	else :
 		player.hud.show_action(take_shell_str)
-		for slot : ShelveSlot in shell_slots :
-			if slot.is_occupied() :
-				return
-		is_empty = true
 	if is_empty :
 		player.hud.show_hint(no_shell_str)
 
@@ -42,7 +50,18 @@ func on_button_pressed() -> void:
 		for slot : ShelveSlot in shell_slots :
 			if slot.is_occupied() :
 				player.carry_item(slot.take_shell())
-				player.hud.show_action(deposit_shell_str)
+				if can_deposit :
+					player.hud.show_action(deposit_shell_str)
+				else :
+					player.hud.hide_action()
 				return
 		is_empty = true
 		player.hud.show_action(no_shell_str)
+
+func check_empty() -> void :	
+	for slot : ShelveSlot in shell_slots :
+		if slot.is_occupied() :
+			is_empty = false
+			return
+	is_empty = true
+		

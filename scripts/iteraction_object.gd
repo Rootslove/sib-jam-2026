@@ -3,11 +3,14 @@ class_name IteractionObject
 
 @export var action_name : String = "E - чтобы что-то сделать"
 @export var expression_string : String = ""
+@export var _disabled : bool = false
 
 var player : PlayerCharacter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_deferred("monitoring", !_disabled)
+	set_deferred("monitorable", !_disabled)
 	self.body_entered.connect(notify_player_enter)
 	self.body_exited.connect(notify_player_exit)
 

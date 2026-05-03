@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://d7i0xudespcw"]
+
+[ext_resource type="Script" uid="uid://cb6xfknn214i5" path="res://levels/main_scene.gd" id="1_aratj"]
+[ext_resource type="Texture2D" uid="uid://cq5hhl7r8l1tf" path="res://assets/sprites/BG/skyBox.png" id="1_ym6r2"]
+[ext_resource type="Texture2D" uid="uid://cd2i05qya2dn0" path="res://assets/sprites/BG/2/background.png" id="2_aratj"]
+[ext_resource type="Texture2D" uid="uid://bg2nk36ohfqnq" path="res://assets/sprites/BG/2/foreground.png" id="3_wg1fj"]
+[ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/objects/Bed/Bed.tscn" id="4_1twvi"]
+[ext_resource type="PackedScene" uid="uid://c04rsj6fmxabk" path="res://scenes/objects/shelve&shells/Shelve.tscn" id="5_leiyr"]
+[ext_resource type="PackedScene" uid="uid://do75j6bj5h4g0" path="res://scenes/objects/gun/Gun.tscn" id="6_rhvro"]
+[ext_resource type="PackedScene" uid="uid://dlkmg8nfuoqta" path="res://scenes/objects/Radio/Radio.tscn" id="9_s23a8"]
+[ext_resource type="PackedScene" uid="uid://jef01uyf7dly" path="res://scenes/objects/cooking_table/TableObj.tscn" id="11_oij4e"]
+[ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="12_wmywh"]
+[ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="13_e8oxv"]
+[ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="14_38113"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el5x5"]
+size = Vector2(918, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ahkb"]
+size = Vector2(50, 240)
+
+[node name="Day3" type="Node2D" unique_id=50034997]
+script = ExtResource("1_aratj")
+
+[node name="Background" type="Node2D" parent="." unique_id=103548172]
+position = Vector2(475, 199)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1428221592]
+texture = ExtResource("1_ym6r2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=167236938]
+texture = ExtResource("2_aratj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=12932883]
+texture = ExtResource("3_wg1fj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background" unique_id=216602982]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=2047565500]
+position = Vector2(-475, -199)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=50188281]
+position = Vector2(411, 278)
+shape = SubResource("RectangleShape2D_el5x5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Background" unique_id=1270904639]
+position = Vector2(-475, -199)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D2" unique_id=922249601]
+position = Vector2(-19, 167)
+shape = SubResource("RectangleShape2D_1ahkb")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Background" unique_id=1042161692]
+position = Vector2(443, -197)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D3" unique_id=1540043218]
+position = Vector2(-19, 167)
+shape = SubResource("RectangleShape2D_1ahkb")
+
+[node name="Objects" type="Node2D" parent="." unique_id=1665282662]
+
+[node name="Bed" parent="Objects" unique_id=1378789970 instance=ExtResource("4_1twvi")]
+unique_name_in_owner = true
+position = Vector2(59, 262)
+collision_layer = 0
+collision_mask = 0
+next_scene = "uid://blf3tcwbrf015"
+expression_string = "sleep()"
+
+[node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_leiyr")]
+unique_name_in_owner = true
+position = Vector2(564, 223)
+amount = 1
+take_shell_str = "E - взять себя в руки!"
+no_shell_str = "Ммм, какая кровать"
+hide_shells = true
+can_deposit = false
+
+[node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("6_rhvro")]
+position = Vector2(866, 109)
+shoot_string = "Е - новая жизнь!"
+hint_string = "надо взять себя в руки"
+reqs = null
+action_name = null
+expression_string = null
+_disabled = null
+
+[node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("9_s23a8")]
+position = Vector2(274, 221)
+collision_layer = 0
+
+[node name="TableObj" parent="Objects" unique_id=553220251 instance=ExtResource("11_oij4e")]
+position = Vector2(431, 246)
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="Hud" parent="." unique_id=1486317036 node_paths=PackedStringArray("player") instance=ExtResource("12_wmywh")]
+player = NodePath("../PlayerCharacter")
+
+[node name="HmCamera" type="Camera2D" parent="." unique_id=1625849009 node_paths=PackedStringArray("target")]
+position = Vector2(321, 182)
+script = ExtResource("13_e8oxv")
+left_limit = 300
+right_limit = 650
+target = NodePath("../PlayerCharacter")
+metadata/_custom_type_script = "uid://cf8wu1u008fwv"
+
+[node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("14_38113")]
+position = Vector2(142, 243)
+hud = NodePath("../Hud")
+is_shell = true

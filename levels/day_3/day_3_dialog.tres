@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogRes" format=3 uid="uid://dyk3wixfu7ojx"]
+
+[ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="1_o6bta"]
+
+[resource]
+script = ExtResource("1_o6bta")
+phrases = Array[String](["Фух,  принстся же такое", "И зачем меня солить?", "Надо взять себя в руки!"])
+speaker = "..."
+id = "325"
+metadata/_custom_type_script = "uid://bdvw2h0krd13u"

@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dlkmg8nfuoqta" path="res://scenes/objects/Radio/Radio.tscn" id="7_jtuo5"]
 [ext_resource type="Script" uid="uid://7s6a2fioptub" path="res://scripts/shell_requirements.gd" id="7_oj2f0"]
 [ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="8_b244s"]
-[ext_resource type="Resource" uid="uid://dokkpgphpawdn" path="res://levels/day_1/radio_day_1.tres" id="9_xmq0b"]
 [ext_resource type="PackedScene" uid="uid://jef01uyf7dly" path="res://scenes/objects/cooking_table/TableObj.tscn" id="10_i6mo8"]
+[ext_resource type="Resource" uid="uid://bfo30h1wfrq21" path="res://levels/day_2/radio_day_2.tres" id="10_oj2f0"]
 [ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="11_cyax5"]
 [ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_pi18v"]
 [ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="13_wxdu8"]
@@ -89,7 +89,7 @@ unique_name_in_owner = true
 position = Vector2(59, 262)
 collision_layer = 0
 collision_mask = 2
-next_scene = "uid://blf3tcwbrf015"
+next_scene = "uid://d7i0xudespcw"
 expression_string = "sleep()"
 
 [node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_riaxp")]
@@ -104,7 +104,7 @@ reqs = Array[ExtResource("7_oj2f0")]([SubResource("Resource_mgn70")])
 [node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("7_jtuo5")]
 position = Vector2(274, 221)
 collision_layer = 0
-dialog = Array[ExtResource("8_b244s")]([ExtResource("9_xmq0b")])
+dialog = Array[ExtResource("8_b244s")]([ExtResource("10_oj2f0")])
 
 [node name="TableObj" parent="Objects" unique_id=553220251 instance=ExtResource("10_i6mo8")]
 position = Vector2(431, 246)

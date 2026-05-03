@@ -6,6 +6,8 @@ class_name Gun
 @export var reqs : Array[ShellRequirements]
 var cur_req_idx : int = 0
 
+var game_end : PackedScene = preload("uid://cn0gv22ngt86w")
+
 var is_firing : bool = false
 
 func _ready() -> void:
@@ -31,6 +33,9 @@ func on_button_pressed() -> void:
 	%AnimatedSprite2D.play("fire")
 	is_firing = true
 	GManager.shots_needed -= 1
+	if player.is_shell :
+		player.queue_free()
+		get_tree().root.add_child(game_end.instantiate())
 
 func on_animation_finished() -> void:
 	if is_firing :

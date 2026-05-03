@@ -12,7 +12,7 @@ var shots_required_amount : int = 0
 func _ready() -> void:
 	dialogue = DialogRes.new()
 	dialogue.id = "adffgg"
-	dialogue.phrases.append("Не спать, не спать! Стерлять! Стрелять!!")
+	dialogue.phrases.append("Не спать, не спать! Стерлять!! Стрелять!!!")
 	dialogue.speaker = "Голоса в голове"
 
 func sleep(new_scene_path : String) -> void:

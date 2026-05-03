@@ -10,31 +10,38 @@ var carried_item : Item
 @export var SPEED : float = 200.0
 const JUMP_VELOCITY = -400.0
 
+@export var is_shell : bool = false
 
 func _ready() -> void:
 	GManager.player = self
+	if is_shell :
+		%Sprite2D.visible = false
+		%ShellSprite.visible = true
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
-	if velocity.length_squared() > 100 :
-		%AnimationPlayer.play("walk")
-		if velocity.x < 0 :
-			%Sprite2D.flip_h = true
+	if not is_shell :
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		
+		if velocity.length_squared() > 100 :
+			%AnimationPlayer.play("walk")
+			if velocity.x < 0 :
+				%Sprite2D.flip_h = true
+			else :
+				%Sprite2D.flip_h = false
 		else :
-			%Sprite2D.flip_h = false
+			%AnimationPlayer.play("idle")
+	
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction := Input.get_axis("ui_left", "ui_right")
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else :
-		%AnimationPlayer.play("idle")
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, 16)
 
 	move_and_slide()
 
@@ -55,3 +62,11 @@ func drop_item() -> Node2D :
 	%ItemMarker.remove_child(carried_item)
 	carried_item = null
 	return item_to_return
+
+func _input(event: InputEvent) -> void:
+	if not is_shell || abs(velocity.x) > 100:
+		return
+	if event.is_action_pressed("ui_left") :
+		velocity.x = -400;
+	if event.is_action_pressed("ui_right") :
+		velocity.x = 400;

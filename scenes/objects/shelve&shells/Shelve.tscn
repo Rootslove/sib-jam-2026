@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c64qkrudarhkp" path="res://scenes/objects/shelve&shells/shelve_slot.gd" id="3_i4ec0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ec0"]
-size = Vector2(35, 75)
+size = Vector2(88, 75)
 
 [node name="Shelve" type="Area2D" unique_id=325387380 node_paths=PackedStringArray("shell_slots")]
 collision_layer = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://q3uk2xh4lel0"
 texture = ExtResource("2_jr0h8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1771042102]
-position = Vector2(0.5, 7.5)
+position = Vector2(1, 7.5)
 shape = SubResource("RectangleShape2D_i4ec0")
 
 [node name="ShelveSlot" type="Marker2D" parent="." unique_id=2007067789]
