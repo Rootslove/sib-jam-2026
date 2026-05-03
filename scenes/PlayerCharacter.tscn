@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c8ab3m0omm8fi" path="res://scenes/player_character.gd" id="1_cij07"]
 [ext_resource type="Texture2D" uid="uid://bo3hgcvs1vbsf" path="res://assets/sprites/PC/pc.png" id="2_samq8"]
-[ext_resource type="Texture2D" uid="uid://c7stryc575l3i" path="res://assets/sprites/PC/Shell-0003.png" id="3_kn48b"]
+[ext_resource type="Texture2D" uid="uid://3cr8mcju0g8l" path="res://assets/sprites/Obj/shell_type.png" id="3_gk71f"]
+[ext_resource type="AudioStream" uid="uid://c615f3g3cyg12" path="res://assets/SFX/step_1.ogg" id="4_w4u4s"]
+[ext_resource type="AudioStream" uid="uid://dma5cihh52vfy" path="res://assets/SFX/step_2.ogg" id="5_gk71f"]
+[ext_resource type="AudioStream" uid="uid://t6oipr87855p" path="res://assets/SFX/step_3.ogg" id="6_iqs6o"]
+[ext_resource type="AudioStream" uid="uid://bjimpmlti4cog" path="res://assets/SFX/step_4.ogg" id="7_abydg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_24f1h"]
 
@@ -53,6 +57,26 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Steps")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.41902393, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bjtiv"]
 _data = {
@@ -60,6 +84,14 @@ _data = {
 &"idle": SubResource("Animation_samq8"),
 &"walk": SubResource("Animation_w4u4s")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kn48b"]
+random_volume_offset_db = 5.02
+streams_count = 4
+stream_0/stream = ExtResource("4_w4u4s")
+stream_1/stream = ExtResource("5_gk71f")
+stream_2/stream = ExtResource("6_iqs6o")
+stream_3/stream = ExtResource("7_abydg")
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1584477530]
 scale = Vector2(1.4, 1.4)
@@ -69,6 +101,7 @@ script = ExtResource("1_cij07")
 [node name="ItemMarker" type="Marker2D" parent="." unique_id=2085028619]
 unique_name_in_owner = true
 position = Vector2(9, -10)
+scale = Vector2(0.7, 0.7)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1882508325]
 unique_name_in_owner = true
@@ -87,6 +120,11 @@ libraries/ = SubResource("AnimationLibrary_bjtiv")
 [node name="ShellSprite" type="Sprite2D" parent="." unique_id=718780255]
 unique_name_in_owner = true
 visible = false
-position = Vector2(6.428571, 1.4285713)
+position = Vector2(-0.7142857, -1.4285715)
 rotation = -1.5707964
-texture = ExtResource("3_kn48b")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_gk71f")
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="." unique_id=1559030527]
+stream = SubResource("AudioStreamRandomizer_kn48b")
+volume_db = -10.947

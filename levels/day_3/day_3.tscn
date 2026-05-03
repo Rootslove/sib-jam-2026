@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://jef01uyf7dly" path="res://scenes/objects/cooking_table/TableObj.tscn" id="11_oij4e"]
 [ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="12_wmywh"]
 [ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="13_e8oxv"]
+[ext_resource type="Resource" uid="uid://dyk3wixfu7ojx" path="res://levels/day_3/day_3_dialog.tres" id="13_kacog"]
 [ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="14_38113"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el5x5"]
@@ -109,3 +110,4 @@ metadata/_custom_type_script = "uid://cf8wu1u008fwv"
 position = Vector2(142, 243)
 hud = NodePath("../Hud")
 is_shell = true
+start_level_dialog = ExtResource("13_kacog")

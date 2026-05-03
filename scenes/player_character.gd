@@ -12,8 +12,17 @@ const JUMP_VELOCITY = -400.0
 
 @export var is_shell : bool = false
 @export var end_level_dialog : DialogRes
+@export var start_level_dialog : DialogRes
+
+var timer : Timer
 
 func _ready() -> void:
+	timer = Timer.new()
+	timer.one_shot = true
+	timer.timeout.connect(start_dialog)
+	if start_level_dialog :
+		add_child(timer)
+		timer.start(0.6)
 	GManager.player = self
 	if is_shell :
 		%Sprite2D.visible = false
@@ -63,6 +72,9 @@ func drop_item() -> Node2D :
 	%ItemMarker.remove_child(carried_item)
 	carried_item = null
 	return item_to_return
+
+func start_dialog() -> void:
+	hud.start_dialogue(start_level_dialog)
 
 func _input(event: InputEvent) -> void:
 	if not is_shell || abs(velocity.x) > 100:

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c32aw6ba7trk1"]
 
+[ext_resource type="Script" uid="uid://cb6xfknn214i5" path="res://levels/main_scene.gd" id="1_tyo1q"]
 [ext_resource type="Texture2D" uid="uid://cq5hhl7r8l1tf" path="res://assets/sprites/BG/skyBox.png" id="1_x302v"]
 [ext_resource type="Texture2D" uid="uid://cd2i05qya2dn0" path="res://assets/sprites/BG/2/background.png" id="2_oj2f0"]
 [ext_resource type="Texture2D" uid="uid://bg2nk36ohfqnq" path="res://assets/sprites/BG/2/foreground.png" id="3_mgn70"]
@@ -30,7 +31,7 @@ metadata/_custom_type_script = "uid://bdvw2h0krd13u"
 
 [sub_resource type="Resource" id="Resource_jd12e"]
 script = ExtResource("8_b244s")
-phrases = Array[String](["Тебе соли жалко, да?", "Жлобяра..."])
+phrases = Array[String](["Тебе соли жалко, да?", "Жлобяра...", "Вон там сзади стол стоит, иди посоли нормально!"])
 speaker = "Твоя пушка"
 metadata/_custom_type_script = "uid://bdvw2h0krd13u"
 
@@ -58,6 +59,7 @@ metadata/_custom_type_script = "uid://7s6a2fioptub"
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyo1q"]
 
 [node name="Day2" type="Node2D" unique_id=421249562]
+script = ExtResource("1_tyo1q")
 
 [node name="Background" type="Node2D" parent="." unique_id=1623411791]
 position = Vector2(475, 199)
@@ -127,6 +129,7 @@ dialog = Array[ExtResource("8_b244s")]([ExtResource("10_oj2f0")])
 position = Vector2(431, 246)
 
 [node name="AutoTriggerArea" type="Area2D" parent="Objects" unique_id=799249529 node_paths=PackedStringArray("object_to_trigger")]
+position = Vector2(-20, -1)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("12_mgn70")

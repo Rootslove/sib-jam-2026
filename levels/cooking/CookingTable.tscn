@@ -61,7 +61,7 @@ salt = ExtResource("2_ks5bk")
 anchor = NodePath("../SalterAnchor")
 
 [node name="SalterAnchor" type="Marker2D" parent="." unique_id=521206149]
-position = Vector2(230, 247)
+position = Vector2(159, 258)
 
 [node name="ExitButton" type="Button" parent="." unique_id=1658832286]
 unique_name_in_owner = true
