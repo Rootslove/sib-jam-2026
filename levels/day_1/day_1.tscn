@@ -83,7 +83,7 @@ expression_string = "sleep()"
 
 [node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_y4ljs")]
 unique_name_in_owner = true
-position = Vector2(564, 223)
+position = Vector2(564, 228)
 
 [node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("6_y6s2w")]
 position = Vector2(866, 109)

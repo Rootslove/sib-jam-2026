@@ -7,6 +7,7 @@ var shots_needed : int = 0
 var dialogue : DialogRes
 var player : PlayerCharacter
 var salt_levels : Array[String] = ["не соленый", "слабосоленый", "соленый", "пересолил", "да тут одна соль!"]
+var sides_levels : Array[String] = ["пусто", "малый гарнир", "средний гарнир", "большой гарнир", "куда столько!?"]
 var shots_required_amount : int = 0
 
 func _ready() -> void:

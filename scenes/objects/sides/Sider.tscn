@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cbjfpspqemge7"]
+
+[ext_resource type="Script" uid="uid://bh0q4mv8gk3qb" path="res://scenes/objects/sides/sider.gd" id="1_dfba1"]
+[ext_resource type="PackedScene" uid="uid://1m60tgbp31d1" path="res://scenes/objects/sides/side_bullet.tscn" id="2_n1o1e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfba1"]
+radius = 30.0
+
+[node name="Sider" type="CharacterBody2D" unique_id=1317278502]
+script = ExtResource("1_dfba1")
+side = ExtResource("2_n1o1e")
+metadata/_custom_type_script = "uid://bh0q4mv8gk3qb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=780780534]
+shape = SubResource("CircleShape2D_dfba1")

@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 			last_big_y_velocity_sign = !last_big_y_velocity_sign
 			var new_salt : Spice = salt.instantiate()
 			get_parent().add_child(new_salt)
+			%AudioStreamPlayer2D.play()
 			new_salt.table = table
 			new_salt.global_position = %SpawnPoint.global_position
 			

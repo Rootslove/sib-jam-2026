@@ -73,7 +73,7 @@ expression_string = "sleep()"
 
 [node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_leiyr")]
 unique_name_in_owner = true
-position = Vector2(564, 223)
+position = Vector2(564, 228)
 amount = 1
 take_shell_str = "E - взять себя в руки!"
 no_shell_str = "Ммм, какая кровать"
@@ -90,7 +90,7 @@ position = Vector2(274, 221)
 collision_layer = 0
 
 [node name="TableObj" parent="Objects" unique_id=553220251 instance=ExtResource("11_oij4e")]
-position = Vector2(431, 246)
+position = Vector2(431, 244)
 collision_mask = 0
 monitoring = false
 monitorable = false

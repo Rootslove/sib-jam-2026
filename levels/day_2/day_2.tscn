@@ -111,7 +111,7 @@ expression_string = "sleep()"
 
 [node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_riaxp")]
 unique_name_in_owner = true
-position = Vector2(564, 223)
+position = Vector2(564, 228)
 amount = 1
 
 [node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("6_jd12e")]
@@ -126,7 +126,7 @@ collision_layer = 0
 dialog = Array[ExtResource("8_b244s")]([ExtResource("10_oj2f0")])
 
 [node name="TableObj" parent="Objects" unique_id=553220251 instance=ExtResource("10_i6mo8")]
-position = Vector2(431, 246)
+position = Vector2(431, 244)
 
 [node name="AutoTriggerArea" type="Area2D" parent="Objects" unique_id=799249529 node_paths=PackedStringArray("object_to_trigger")]
 position = Vector2(-20, -1)

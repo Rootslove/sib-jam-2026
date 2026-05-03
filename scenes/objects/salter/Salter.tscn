@@ -2,9 +2,18 @@
 
 [ext_resource type="Script" uid="uid://qemgpe8vcxsv" path="res://scenes/objects/salter/salter.gd" id="1_3oqb8"]
 [ext_resource type="Texture2D" uid="uid://b5k3hpeokhafb" path="res://assets/sprites/PC/Salter.png" id="2_6731o"]
+[ext_resource type="AudioStream" uid="uid://pcm3eev3eelq" path="res://assets/SFX/shake_1.ogg" id="3_2itd1"]
+[ext_resource type="AudioStream" uid="uid://dmhev5g1qcnc8" path="res://assets/SFX/shake_2.ogg" id="4_2tc8e"]
+[ext_resource type="AudioStream" uid="uid://bx48k3xg475xt" path="res://assets/SFX/shake_3.ogg" id="5_5ltxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oqb8"]
 size = Vector2(102, 132)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6731o"]
+streams_count = 3
+stream_0/stream = ExtResource("3_2itd1")
+stream_1/stream = ExtResource("4_2tc8e")
+stream_2/stream = ExtResource("5_5ltxi")
 
 [node name="Salter" type="CharacterBody2D" unique_id=624381517]
 script = ExtResource("1_3oqb8")
@@ -21,3 +30,8 @@ shape = SubResource("RectangleShape2D_3oqb8")
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=607102942]
 unique_name_in_owner = true
 position = Vector2(-2, 69)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1250420847]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_6731o")
+volume_db = -8.525

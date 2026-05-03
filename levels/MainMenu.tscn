@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdnn4des4fa0i"]
 
 [ext_resource type="Script" uid="uid://6oxw7bl3b0e0" path="res://levels/main_menu.gd" id="1_oiv87"]
+[ext_resource type="Theme" uid="uid://cs0m24c6am0f" path="res://scenes/UI/deffff.tres" id="2_17qdo"]
 
 [node name="MainMenu" type="Control" unique_id=555658686]
 layout_mode = 3
@@ -25,4 +26,5 @@ offset_right = 54.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_17qdo")
 text = "Начать игру"
