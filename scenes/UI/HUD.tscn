@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1upue6dnp6ne" path="res://scenes/UI/hud.gd" id="1_5fyfn"]
 [ext_resource type="PackedScene" uid="uid://dofo020tdlvi0" path="res://scenes/UI/DialoguePanel.tscn" id="2_7n4fj"]
+[ext_resource type="Theme" uid="uid://cs0m24c6am0f" path="res://scenes/UI/deffff.tres" id="2_vphgt"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_5fyfn"]
 device = -1
@@ -49,6 +50,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("2_vphgt")
 shortcut = SubResource("Shortcut_7n4fj")
 text = " Е - Выполнить какое-то действие"
 

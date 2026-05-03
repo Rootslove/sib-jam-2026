@@ -11,6 +11,7 @@ var carried_item : Item
 const JUMP_VELOCITY = -400.0
 
 @export var is_shell : bool = false
+@export var end_level_dialog : DialogRes
 
 func _ready() -> void:
 	GManager.player = self

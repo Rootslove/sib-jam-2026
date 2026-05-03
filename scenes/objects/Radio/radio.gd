@@ -24,6 +24,8 @@ func notify_player_enter(body : Node2D) -> void:
 	player.hud.show_action(start_radio_str)
 
 func on_button_pressed() -> void:
+	if dialog.size() <= cur_dialog_idx :
+		return
 	player.hud.start_dialogue(dialog[cur_dialog_idx])
 	transmission_in_progress = true
 	player.hud.show_hint(listen_to_radio_str)

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://jef01uyf7dly" path="res://scenes/objects/cooking_table/TableObj.tscn" id="10_i6mo8"]
 [ext_resource type="Resource" uid="uid://bfo30h1wfrq21" path="res://levels/day_2/radio_day_2.tres" id="10_oj2f0"]
 [ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="11_cyax5"]
+[ext_resource type="Script" uid="uid://b02oarb5coh7r" path="res://scripts/auto_trigger_area.gd" id="12_mgn70"]
 [ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_pi18v"]
 [ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="13_wxdu8"]
 
@@ -20,6 +21,18 @@ size = Vector2(918, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcet7"]
 size = Vector2(50, 240)
+
+[sub_resource type="Resource" id="Resource_riaxp"]
+script = ExtResource("8_b244s")
+phrases = Array[String](["Ты че, серьезно?", "Сам это ешь"])
+speaker = "Твоя пушка"
+metadata/_custom_type_script = "uid://bdvw2h0krd13u"
+
+[sub_resource type="Resource" id="Resource_jd12e"]
+script = ExtResource("8_b244s")
+phrases = Array[String](["Тебе соли жалко, да?", "Жлобяра..."])
+speaker = "Твоя пушка"
+metadata/_custom_type_script = "uid://bdvw2h0krd13u"
 
 [sub_resource type="Resource" id="Resource_oj2f0"]
 script = ExtResource("8_b244s")
@@ -30,7 +43,7 @@ metadata/_custom_type_script = "uid://bdvw2h0krd13u"
 
 [sub_resource type="Resource" id="Resource_tyo1q"]
 script = ExtResource("8_b244s")
-phrases = Array[String](["Неплохо, хороший снаряд"])
+phrases = Array[String](["Неплохо, хороший снаряд", "Можешь идти спать"])
 speaker = "Твоя пушка"
 id = "123"
 metadata/_custom_type_script = "uid://bdvw2h0krd13u"
@@ -41,6 +54,8 @@ salt_level = 20
 help_text = SubResource("Resource_oj2f0")
 reqs_met_dialogue = SubResource("Resource_tyo1q")
 metadata/_custom_type_script = "uid://7s6a2fioptub"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tyo1q"]
 
 [node name="Day2" type="Node2D" unique_id=421249562]
 
@@ -99,6 +114,8 @@ amount = 1
 
 [node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("6_jd12e")]
 position = Vector2(866, 109)
+eat_it = SubResource("Resource_riaxp")
+not_enough_salt = SubResource("Resource_jd12e")
 reqs = Array[ExtResource("7_oj2f0")]([SubResource("Resource_mgn70")])
 
 [node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("7_jtuo5")]
@@ -108,6 +125,17 @@ dialog = Array[ExtResource("8_b244s")]([ExtResource("10_oj2f0")])
 
 [node name="TableObj" parent="Objects" unique_id=553220251 instance=ExtResource("10_i6mo8")]
 position = Vector2(431, 246)
+
+[node name="AutoTriggerArea" type="Area2D" parent="Objects" unique_id=799249529 node_paths=PackedStringArray("object_to_trigger")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("12_mgn70")
+object_to_trigger = NodePath("../Radio")
+metadata/_custom_type_script = "uid://b02oarb5coh7r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/AutoTriggerArea" unique_id=843989536]
+position = Vector2(383, 234)
+shape = SubResource("CircleShape2D_tyo1q")
 
 [node name="Hud" parent="." unique_id=1486317036 node_paths=PackedStringArray("player") instance=ExtResource("11_cyax5")]
 player = NodePath("../PlayerCharacter")

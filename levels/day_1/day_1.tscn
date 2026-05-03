@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="8_xtm0n"]
 [ext_resource type="Resource" uid="uid://dokkpgphpawdn" path="res://levels/day_1/radio_day_1.tres" id="9_256l4"]
 [ext_resource type="PackedScene" uid="uid://bufoopd8eyk71" path="res://scenes/UI/HUD.tscn" id="11_0g0tp"]
+[ext_resource type="Script" uid="uid://b02oarb5coh7r" path="res://scripts/auto_trigger_area.gd" id="11_nlco8"]
 [ext_resource type="Script" uid="uid://cf8wu1u008fwv" path="res://scripts/hm_camera.gd" id="12_mooj2"]
 [ext_resource type="PackedScene" uid="uid://cwalqlui6h81i" path="res://scenes/PlayerCharacter.tscn" id="13_1rfrp"]
 
@@ -19,6 +20,14 @@ size = Vector2(918, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko617"]
 size = Vector2(50, 240)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y75v8"]
+
+[sub_resource type="Resource" id="Resource_nlco8"]
+script = ExtResource("8_xtm0n")
+phrases = Array[String](["Отлично, задал ты им жару!", "Иди проспись"])
+speaker = "Голос из радио"
+metadata/_custom_type_script = "uid://bdvw2h0krd13u"
 
 [node name="Main" type="Node2D" unique_id=933123736]
 script = ExtResource("1_nlco8")
@@ -84,6 +93,17 @@ position = Vector2(274, 221)
 collision_layer = 0
 dialog = Array[ExtResource("8_xtm0n")]([ExtResource("9_256l4")])
 
+[node name="AutoTriggerArea" type="Area2D" parent="Objects" unique_id=174333717 node_paths=PackedStringArray("object_to_trigger")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("11_nlco8")
+object_to_trigger = NodePath("../Radio")
+metadata/_custom_type_script = "uid://b02oarb5coh7r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/AutoTriggerArea" unique_id=76835925]
+position = Vector2(383, 234)
+shape = SubResource("CircleShape2D_y75v8")
+
 [node name="Hud" parent="." unique_id=1192146616 node_paths=PackedStringArray("player") instance=ExtResource("11_0g0tp")]
 player = NodePath("../PlayerCharacter")
 
@@ -98,3 +118,4 @@ metadata/_custom_type_script = "uid://cf8wu1u008fwv"
 [node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("13_1rfrp")]
 position = Vector2(136, 240)
 hud = NodePath("../Hud")
+end_level_dialog = SubResource("Resource_nlco8")

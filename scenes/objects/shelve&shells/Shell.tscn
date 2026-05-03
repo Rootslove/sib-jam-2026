@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bt01jwy1bevi3"]
 
 [ext_resource type="Script" uid="uid://dqoxt1rgl6sgd" path="res://scripts/item.gd" id="1_8f81k"]
-[ext_resource type="Texture2D" uid="uid://c7stryc575l3i" path="res://assets/sprites/PC/Shell-0003.png" id="2_carb2"]
+[ext_resource type="Texture2D" uid="uid://3cr8mcju0g8l" path="res://assets/sprites/Obj/shell_type.png" id="2_8n4ok"]
 
 [node name="Shell" type="Node2D" unique_id=1032144903]
 script = ExtResource("1_8f81k")
@@ -9,8 +9,8 @@ item_name = "Снаряд"
 metadata/_custom_type_script = "uid://dqoxt1rgl6sgd"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1504268974]
-position = Vector2(16, 16)
-texture = ExtResource("2_carb2")
+position = Vector2(28, 8)
+texture = ExtResource("2_8n4ok")
 
 [node name="SpiceArea" type="Area2D" parent="." unique_id=1944649054]
 collision_layer = 8
@@ -18,4 +18,4 @@ collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpiceArea" unique_id=1872485353]
 position = Vector2(1, 6)
-polygon = PackedVector2Array(0, 0, 4, -5, 24, -5, 31, 1, 24, 9, 6, 10, 0, 6)
+polygon = PackedVector2Array(0, 0, 2, -5, 34, -4, 54, 2, 34, 8, 19, 9, 1, 9)

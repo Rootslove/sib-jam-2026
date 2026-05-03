@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cphvmyxprx75f" path="res://scenes/objects/salter/Salter.tscn" id="1_cojxw"]
 [ext_resource type="Script" uid="uid://doe0jq3w8814c" path="res://levels/cooking/cooking_table.gd" id="1_m4ugx"]
 [ext_resource type="PackedScene" uid="uid://btik5ldm7lqh6" path="res://scenes/objects/salter/SaltPiece.tscn" id="2_ks5bk"]
+[ext_resource type="Theme" uid="uid://cs0m24c6am0f" path="res://scenes/UI/deffff.tres" id="4_kbru1"]
 [ext_resource type="Script" uid="uid://c2c273mtqokbc" path="res://levels/cooking/salt_progress_bar.gd" id="4_m4ugx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cojxw"]
@@ -68,6 +69,7 @@ offset_left = 558.0
 offset_top = 315.0
 offset_right = 622.0
 offset_bottom = 346.0
+theme = ExtResource("4_kbru1")
 shortcut = SubResource("Shortcut_kbru1")
 text = "Готово"
 
@@ -77,6 +79,7 @@ offset_left = 524.0
 offset_top = 12.0
 offset_right = 621.0
 offset_bottom = 43.0
+theme = ExtResource("4_kbru1")
 text = "Убрать всё"
 
 [node name="SaltProgressBar" type="ProgressBar" parent="." unique_id=1226975418 node_paths=PackedStringArray("table")]

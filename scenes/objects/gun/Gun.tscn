@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://5cbhre5yfurt" path="res://scenes/objects/gun/gun.gd" id="1_couac"]
 [ext_resource type="Texture2D" uid="uid://c45p6toi23urd" path="res://assets/sprites/Gun/Cannon_anim-Sheet-sheet2.png" id="2_55daq"]
+[ext_resource type="AudioStream" uid="uid://malnuefjlnxi" path="res://assets/SFX/cannon2.ogg" id="3_o6rjq"]
+[ext_resource type="AudioStream" uid="uid://ck1olbfreii6f" path="res://assets/SFX/cannon_rotate.ogg" id="4_8guto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6rjq"]
 size = Vector2(444, 245.5)
@@ -109,3 +111,15 @@ texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_2oqjn")
 animation = &"fire"
 frame_progress = 0.10927284
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="." unique_id=508133660]
+unique_name_in_owner = true
+position = Vector2(1, -1)
+stream = ExtResource("3_o6rjq")
+volume_db = 2.773
+
+[node name="Rotate" type="AudioStreamPlayer2D" parent="." unique_id=699740779]
+unique_name_in_owner = true
+position = Vector2(1, -1)
+stream = ExtResource("4_8guto")
+volume_db = -7.627
