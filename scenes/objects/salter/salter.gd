@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Salter
 
+@export var table : CookingTable
+
 @export var salt : PackedScene
 @export var anchor : Node2D
 @export var salting_intensity : float = 3
@@ -28,5 +30,6 @@ func _physics_process(delta: float) -> void:
 			last_big_y_velocity_sign = !last_big_y_velocity_sign
 			var new_salt : Spice = salt.instantiate()
 			get_parent().add_child(new_salt)
+			new_salt.table = table
 			new_salt.global_position = %SpawnPoint.global_position
 			

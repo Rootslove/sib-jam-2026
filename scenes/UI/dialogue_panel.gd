@@ -58,6 +58,8 @@ func hide_self() -> void:
 	self.visible = false
 	
 func start_dialogue(dialog : DialogRes) -> void:
+	hide_timer.stop()
+	phrase_timer.stop()
 	if current_phrase_idx != current_dialogue.size() || cur_char_idx != full_text.length() :
 		GManager.dialogue_finished.emit(cur_dialogue_id)
 	%CharacterName.text = dialog.speaker

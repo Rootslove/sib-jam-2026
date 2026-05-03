@@ -61,3 +61,9 @@ func swap_scene_nodes(new_scene : Node) -> void:
 
 func load_previous() -> void :
 	load_scene(previous_scene_path)
+	
+func play_animation() -> void :
+	var load_screen : LoadingScreen = loading_screen.instantiate()
+	add_child(load_screen)
+	await load_screen.loading_screen_ready
+	load_screen.on_load_finished()

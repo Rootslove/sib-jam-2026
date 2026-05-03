@@ -11,6 +11,7 @@ func _ready() -> void:
 	GManager.player.carried_item.reparent(shell_anchor, false)
 	shell = GManager.player.carried_item
 	%ExitButton.pressed.connect(exit)
+	%ResetButton.pressed.connect(clean_shell)
 	shell.scale = Vector2(7, 7)
 
 func _exit_tree() -> void:
@@ -20,3 +21,10 @@ func _exit_tree() -> void:
 
 func exit() -> void:
 	SceneLoader.load_previous()
+	
+func clean_shell() -> void :
+	shell.salt_amount = 0
+	for child : Node2D in shell.get_child(1).get_children() :
+		if child is Spice :
+			child.queue_free()
+	

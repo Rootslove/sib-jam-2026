@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cphvmyxprx75f" path="res://scenes/objects/salter/Salter.tscn" id="1_cojxw"]
 [ext_resource type="Script" uid="uid://doe0jq3w8814c" path="res://levels/cooking/cooking_table.gd" id="1_m4ugx"]
 [ext_resource type="PackedScene" uid="uid://btik5ldm7lqh6" path="res://scenes/objects/salter/SaltPiece.tscn" id="2_ks5bk"]
+[ext_resource type="Script" uid="uid://c2c273mtqokbc" path="res://levels/cooking/salt_progress_bar.gd" id="4_m4ugx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cojxw"]
 size = Vector2(918, 20)
@@ -17,10 +18,9 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_kbru1"]
 events = [SubResource("InputEventKey_m4ugx")]
 
-[node name="CookingTable" type="Node2D" unique_id=570553603 node_paths=PackedStringArray("salter", "shell", "shell_anchor")]
+[node name="CookingTable" type="Node2D" unique_id=570553603 node_paths=PackedStringArray("salter", "shell_anchor")]
 script = ExtResource("1_m4ugx")
 salter = NodePath("Salter")
-shell = NodePath("")
 shell_anchor = NodePath("SalterAnchor")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1909229277]
@@ -53,8 +53,9 @@ collision_mask = 0
 position = Vector2(-19, 167)
 shape = SubResource("RectangleShape2D_ks5bk")
 
-[node name="Salter" parent="." unique_id=624381517 node_paths=PackedStringArray("anchor") instance=ExtResource("1_cojxw")]
-position = Vector2(132, 241)
+[node name="Salter" parent="." unique_id=624381517 node_paths=PackedStringArray("table", "anchor") instance=ExtResource("1_cojxw")]
+position = Vector2(68, 244)
+table = NodePath("..")
 salt = ExtResource("2_ks5bk")
 anchor = NodePath("../SalterAnchor")
 
@@ -63,8 +64,37 @@ position = Vector2(230, 247)
 
 [node name="ExitButton" type="Button" parent="." unique_id=1658832286]
 unique_name_in_owner = true
-offset_left = 347.0
-offset_top = -144.0
-offset_right = 355.0
-offset_bottom = -136.0
+offset_left = 558.0
+offset_top = 315.0
+offset_right = 622.0
+offset_bottom = 346.0
 shortcut = SubResource("Shortcut_kbru1")
+text = "Готово"
+
+[node name="ResetButton" type="Button" parent="." unique_id=1287804931]
+unique_name_in_owner = true
+offset_left = 524.0
+offset_top = 12.0
+offset_right = 621.0
+offset_bottom = 43.0
+text = "Убрать всё"
+
+[node name="SaltProgressBar" type="ProgressBar" parent="." unique_id=1226975418 node_paths=PackedStringArray("table")]
+unique_name_in_owner = true
+offset_left = 212.0
+offset_top = 17.0
+offset_right = 439.0
+offset_bottom = 39.0
+max_value = 9.0
+step = 1.0
+show_percentage = false
+script = ExtResource("4_m4ugx")
+table = NodePath("..")
+
+[node name="SaltProgressText" type="Label" parent="SaltProgressBar" unique_id=1301463754]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 66.0
+offset_top = -1.0
+offset_right = 106.0
+offset_bottom = 22.0

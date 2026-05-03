@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c04rsj6fmxabk" path="res://scenes/objects/shelve&shells/Shelve.tscn" id="5_riaxp"]
 [ext_resource type="PackedScene" uid="uid://do75j6bj5h4g0" path="res://scenes/objects/gun/Gun.tscn" id="6_jd12e"]
 [ext_resource type="PackedScene" uid="uid://dlkmg8nfuoqta" path="res://scenes/objects/Radio/Radio.tscn" id="7_jtuo5"]
+[ext_resource type="Script" uid="uid://7s6a2fioptub" path="res://scripts/shell_requirements.gd" id="7_oj2f0"]
 [ext_resource type="Script" uid="uid://bdvw2h0krd13u" path="res://scripts/dialog_res.gd" id="8_b244s"]
 [ext_resource type="Resource" uid="uid://dokkpgphpawdn" path="res://levels/day_1/radio_day_1.tres" id="9_xmq0b"]
 [ext_resource type="PackedScene" uid="uid://jef01uyf7dly" path="res://scenes/objects/cooking_table/TableObj.tscn" id="10_i6mo8"]
@@ -19,6 +20,27 @@ size = Vector2(918, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcet7"]
 size = Vector2(50, 240)
+
+[sub_resource type="Resource" id="Resource_oj2f0"]
+script = ExtResource("8_b244s")
+phrases = Array[String](["Я хочу соленый снаряд", "Посоли его как следует, но не перебощи!"])
+speaker = "Твоя пушка"
+id = "111"
+metadata/_custom_type_script = "uid://bdvw2h0krd13u"
+
+[sub_resource type="Resource" id="Resource_tyo1q"]
+script = ExtResource("8_b244s")
+phrases = Array[String](["Неплохо, хороший снаряд"])
+speaker = "Твоя пушка"
+id = "123"
+metadata/_custom_type_script = "uid://bdvw2h0krd13u"
+
+[sub_resource type="Resource" id="Resource_mgn70"]
+script = ExtResource("7_oj2f0")
+salt_level = 20
+help_text = SubResource("Resource_oj2f0")
+reqs_met_dialogue = SubResource("Resource_tyo1q")
+metadata/_custom_type_script = "uid://7s6a2fioptub"
 
 [node name="Day2" type="Node2D" unique_id=421249562]
 
@@ -64,7 +86,7 @@ shape = SubResource("RectangleShape2D_pcet7")
 
 [node name="Bed" parent="Objects" unique_id=1378789970 instance=ExtResource("4_tyo1q")]
 unique_name_in_owner = true
-position = Vector2(58, 268)
+position = Vector2(59, 262)
 collision_layer = 0
 collision_mask = 2
 next_scene = "uid://blf3tcwbrf015"
@@ -73,9 +95,11 @@ expression_string = "sleep()"
 [node name="Shelve" parent="Objects" unique_id=325387380 instance=ExtResource("5_riaxp")]
 unique_name_in_owner = true
 position = Vector2(564, 223)
+amount = 1
 
 [node name="Gun" parent="Objects" unique_id=1644629653 instance=ExtResource("6_jd12e")]
 position = Vector2(866, 109)
+reqs = Array[ExtResource("7_oj2f0")]([SubResource("Resource_mgn70")])
 
 [node name="Radio" parent="Objects" unique_id=705585387 instance=ExtResource("7_jtuo5")]
 position = Vector2(274, 221)
@@ -97,5 +121,5 @@ target = NodePath("../PlayerCharacter")
 metadata/_custom_type_script = "uid://cf8wu1u008fwv"
 
 [node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("13_wxdu8")]
-position = Vector2(136, 251)
+position = Vector2(142, 243)
 hud = NodePath("../Hud")

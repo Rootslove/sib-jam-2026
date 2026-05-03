@@ -8,6 +8,8 @@ var freeze_timer : Timer
 var velocity : Vector2 = Vector2.DOWN
 var area : Area2D
 
+var table : CookingTable
+
 func _ready() -> void:
 	self.area_entered.connect(on_area_entered)
 	termination_timer = Timer.new()
@@ -42,3 +44,4 @@ func attach_to_area() -> void:
 	reparent(area, true)
 	set_physics_process(false)
 	set_deferred("disabled", true)
+	table.shell.salt_amount += 1

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://blf3tcwbrf015"]
 
 [ext_resource type="Texture2D" uid="uid://cq5hhl7r8l1tf" path="res://assets/sprites/BG/skyBox.png" id="1_1cyvw"]
+[ext_resource type="Script" uid="uid://cb6xfknn214i5" path="res://levels/main_scene.gd" id="1_nlco8"]
 [ext_resource type="Texture2D" uid="uid://cd2i05qya2dn0" path="res://assets/sprites/BG/2/background.png" id="2_nlco8"]
 [ext_resource type="Texture2D" uid="uid://bg2nk36ohfqnq" path="res://assets/sprites/BG/2/foreground.png" id="3_y75v8"]
 [ext_resource type="PackedScene" uid="uid://27xvq0m6khfa" path="res://scenes/objects/Bed/Bed.tscn" id="4_lkjiq"]
@@ -20,6 +21,8 @@ size = Vector2(918, 20)
 size = Vector2(50, 240)
 
 [node name="Main" type="Node2D" unique_id=933123736]
+script = ExtResource("1_nlco8")
+shots_needed = 4
 
 [node name="Background" type="Node2D" parent="." unique_id=1320744120]
 position = Vector2(475, 199)
@@ -63,7 +66,7 @@ shape = SubResource("RectangleShape2D_ko617")
 
 [node name="Bed" parent="Objects" unique_id=125741387 instance=ExtResource("4_lkjiq")]
 unique_name_in_owner = true
-position = Vector2(58, 268)
+position = Vector2(56, 263)
 collision_layer = 0
 collision_mask = 2
 next_scene = "uid://c32aw6ba7trk1"
@@ -93,5 +96,5 @@ target = NodePath("../PlayerCharacter")
 metadata/_custom_type_script = "uid://cf8wu1u008fwv"
 
 [node name="PlayerCharacter" parent="." unique_id=1584477530 node_paths=PackedStringArray("hud") instance=ExtResource("13_1rfrp")]
-position = Vector2(136, 251)
+position = Vector2(136, 240)
 hud = NodePath("../Hud")

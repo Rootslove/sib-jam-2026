@@ -61,6 +61,7 @@ _data = {
 }
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1584477530]
+scale = Vector2(1.4, 1.4)
 collision_layer = 2
 script = ExtResource("1_cij07")
 
